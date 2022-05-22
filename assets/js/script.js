@@ -3,19 +3,31 @@
 var today = moment().format("dddd, MMMM Do, YYYY, h:mm a");
 $("#currentDay").text(today);
 
-var currentHour = moment().hour();
 
-// for (i = 0; i < 18; i++) {
-// if (currentHour[i] = hour) {
-// addclass("present")
-// }
+function timeTracker(hour) {
 
-// for (i = 0; i < 18; i++) {
-// if (currentHour[i] > hour) {
-// addclass("past")
-// }
-// }
+    var currentHour = moment().hour();
+    var blockTime = document.getElementById("#hour8");
 
+    if (blockTime < currentHour) {
+        // $("timeBlock").removeClass("present")
+        // $("timeBlock").removeClass("future")
+        $("timeBlock").addClass("past")
+    }
+    else if (blockTime === currentHour) {
+        // $(".time-block").removeClass("past")
+        // $(".time-block").removeClass("future")
+        $(".time-block").addClass("present")
+    }
+    else (blockTime > currentHour); {
+        // $(".time-block").removeClass("past")
+        // $(".time-block").removeClass("present")
+        $(".time-block").addClass("future")
+    }
+
+
+    console.log(currentHour);
+}
 
 // Set items in local storage
 $(document).ready(function () {
@@ -37,6 +49,8 @@ $(document).ready(function () {
     $("#hour16 .description").val(localStorage.getItem("hour16"));
     $("#hour17 .description").val(localStorage.getItem("hour17"));
     $("#hour18 .description").val(localStorage.getItem("hour18"));
+
+    timeTracker();
 
 
 

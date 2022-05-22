@@ -22,6 +22,7 @@ textarea {
 }
 
 .description {
+    justify-content: center;
     white-space: pre-wrap;
 }
 
